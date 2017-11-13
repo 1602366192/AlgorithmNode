@@ -16,8 +16,8 @@ function printList(head) {
 }
 
 function merge(head1, head2) {
-    var head = new Node();
-    var cursor = head;
+    let head = new Node();
+    let cursor = head;
 
     while (head1 != null || head2 != null) {
 
@@ -63,29 +63,29 @@ function merge(head1, head2) {
 }
 
 
-var list1 = new Node()
+let list1 = new Node()
 list1.data = 2
-var item1 = new Node()
+let item1 = new Node()
 item1.data = 5
 list1.next = item1
 
-var item2 = new Node()
+let item2 = new Node()
 item2.data = 8
 item1.next = item2
 item2.next = null
 printList(list1)
 
-var list2 = new Node()
+let list2 = new Node()
 list2.data = 3
-var item3 = new Node()
+let item3 = new Node()
 item3.data = 6
 list2.next = item3
-var item4 = new Node()
+let item4 = new Node()
 item4.data = 7
 item3.next = item4
 item4.next = null
 printList(list2)
 
-var list3 = merge(list1, list2)
+let list3 = merge(list1, list2)
 printList(list3)
 
