@@ -15,6 +15,54 @@ function printList(head) {
     console.log(" ");
 }
 
+function merge(head1, head2) {
+    var head = new Node();
+    var cursor = head;
+
+    while (head1 != null || head2 != null) {
+
+        if (head1 == null) {
+            cursor.data = head2.data;
+            if (head2.next != null) {
+                cursor.next = new Node();
+                cursor = cursor.next;
+            } else {
+                cursor = null;
+            }
+
+            head2 = head2.next;
+            continue;
+        }
+
+        if (head2 == null) {
+            cursor.data = head1.data;
+            if (head1.next != null) {
+                cursor.next = new Node();
+                cursor = cursor.next;
+            } else {
+                cursor = null;
+            }
+
+            head1 = head1.next;
+            continue;
+        }
+
+        if (head1.data <= head2.data) {
+            cursor.data = head1.data;
+            head1 = head1.next;
+        } else {
+            cursor.data = head2.data;
+            head2 = head2.next;
+        }
+
+        cursor.next = new Node();
+        cursor = cursor.next;
+    }
+
+    return head;
+}
+
+
 var list1 = new Node()
 list1.data = 2
 var item1 = new Node()
@@ -37,4 +85,7 @@ item4.data = 7
 item3.next = item4
 item4.next = null
 printList(list2)
+
+var list3 = merge(list1, list2)
+printList(list3)
 
